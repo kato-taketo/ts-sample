@@ -1,35 +1,18 @@
-import { createElement } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { create } from 'domain';
+import React, { useState } from 'react';
 
-function AppWithoutJSX() {
-  return createElement(
-    'div', {
-      className: 'App'
-    },
-    createElement(
-      'header',
-      {
-        className: 'App-header'
-      },
-      createElement('img', {
-        className: 'App-logo',
-        src: logo,
-        alt: 'logo'
-      }),
-      createElement(
-        'a',
-        {
-          className: 'App-link',
-          href: 'https://reactjs.org',
-          target: '_blank',
-          rel: 'noopener noreferrer'
-        },
-        'Learn React'
-      )
-    )
+function App() {
+  const [inputValue, setInputValue] = useState<string>('defaultValue');
+  return (
+    <div className="App">
+      <input 
+        value={inputValue}
+        onChange={(event) => {
+          setInputValue(event.target.value);
+        }}
+      />
+      <div>{inputValue}</div>
+    </div>
   );
 }
 
-export default AppWithoutJSX;
+export default App;
