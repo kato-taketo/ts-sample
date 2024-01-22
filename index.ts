@@ -1,6 +1,7 @@
-function hoge(arg: number): string {
-  return String(arg);
-}
-console.log(hoge(1000));
+import {
+  exportedFunction,
+  exportedValue
+} from './anotherModule';
 
-export {};
+console.log(exportedValue);
+console.log(exportedFunction(128));
